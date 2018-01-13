@@ -5,21 +5,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_inst"
             android:icon="@drawable/ic_menu_camera"
             android:title="Instructions" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_verify"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Register Myself" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_register"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Register My Contacts" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_display"
             android:icon="@drawable/ic_menu_manage"
             android:title="Display Contacts" />
+        <item
+            android:id="@+id/nav_preventives"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Preventives" />
+        <item
+            android:id="@+id/nav_nearby"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Nearby Places" />
     </group>
 
     <item android:title="Communicate">
