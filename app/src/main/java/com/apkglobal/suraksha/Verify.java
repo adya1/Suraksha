@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -17,13 +18,16 @@ import android.widget.Toast;
  */
 
 public class Verify extends Fragment implements View.OnClickListener{
+    TextInputLayout source_no;
+    private static EditText phone;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         View view = inflater.inflate(R.layout.selfregister, container, false);
-
-        Button submit=(Button)view.findViewById(R.id.button1);
+        source_no=(TextInputLayout)view.findViewById(R.id.verify);
+        phone=view.findViewById(R.id.editText1);
+        Button submit=view.findViewById(R.id.button1);
         submit.setOnClickListener(this);
         return view;
     }
@@ -38,9 +42,10 @@ public class Verify extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        TextInputLayout source_no = (TextInputLayout) view.findViewById(R.id.verify);
+
+
         /*source_no.setHint("Your Phone No.");*/
-        String str_source_no = source_no.getEditText().getText().toString();
+        String str_source_no = phone.getText().toString();
         SQLiteDatabase db;
         db = getActivity().openOrCreateDatabase("NumDB", Context.MODE_PRIVATE, null);
         //	if(source_no.getText()!=null){

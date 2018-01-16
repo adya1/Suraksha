@@ -1,5 +1,6 @@
 package com.apkglobal.suraksha;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -108,11 +112,26 @@ public class MainActivity extends AppCompatActivity
 
         //initializing the fragment object which is selected
         switch (itemId) {
-            /*case R.id.nav_inst:
-                Intent i = new Intent(MainActivity.this, Instructions.class);
-                startActivity(i);
-*//*
-                break;*/
+           case R.id.nav_inst: {
+               LayoutInflater inflater = getLayoutInflater();
+               View alertLayout = inflater.inflate(R.layout.popup_layout, null);
+               AlertDialog alertDialog = new AlertDialog.Builder(
+                       MainActivity.this).create();
+
+               // Setting Dialog Title
+               alertDialog.setTitle("Instructions");
+               // Setting Dialog Message
+               alertDialog.setView(alertLayout);
+
+               // Setting Icon to Dialog
+               alertDialog.setIcon(R.drawable.instruct_icon);
+
+
+
+               // Showing Alert Message
+               alertDialog.show();
+           }break;
+
             case R.id.nav_verify:
                 fragment = new Verify();
                 break;
@@ -122,7 +141,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_display:
                 fragment = new Display();
                 break;
-
+            case R.id.nav_nearby:
+                Intent i = new Intent(MainActivity.this,MapsActivity.class);
+                startActivity(i);
+                break;
         }
 
         //replacing the fragment

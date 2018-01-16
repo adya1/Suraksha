@@ -56,7 +56,7 @@ class AccelerometerManager{
      * Returns true if at least one Accelerometer sensor is available
      * @param context
      */
-    public static boolean isSupported(MainAccelerometer context) {
+    public static boolean isSupported(Context context) {
         aContext = context;
         if (supported == null) {
             if (aContext != null) {

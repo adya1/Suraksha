@@ -10,7 +10,7 @@
         android:layout_marginTop="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="176dp"
-
+        android:backgroundTint="#fd7aff"
         android:text="Submit" />
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -20,10 +20,11 @@
 
         <EditText
             android:id="@+id/editText1"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
+            android:layout_marginLeft="75dp"
             android:layout_height="wrap_content"
 
-
+            android:backgroundTint="#fd7aff"
             android:hint="Your Phone Number"
             android:inputType="phone">
 

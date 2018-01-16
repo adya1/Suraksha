@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -18,12 +19,18 @@ import android.widget.Toast;
  */
 
 public class Register extends Fragment implements View.OnClickListener{
+    TextInputLayout namelayout,numberlayout;
+    private static EditText name,number;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         View view = inflater.inflate(R.layout.contacts_register, container, false);
-        Button save=(Button)view.findViewById(R.id.save);
+        namelayout =view.findViewById(R.id.name);
+        numberlayout =view.findViewById(R.id.mobile);
+         name=view.findViewById(R.id.editText2);
+        number=view.findViewById(R.id.editText3);
+        Button save=view.findViewById(R.id.save);
         save.setOnClickListener(this);
         return view;
     }
@@ -34,12 +41,11 @@ public class Register extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         Toast.makeText(getActivity(), "save started", Toast.LENGTH_LONG).show();
-       TextInputLayout name = (TextInputLayout) view.findViewById(R.id.name);
-      TextInputLayout number = (TextInputLayout) view.findViewById(R.id.mobile);
+
        /* name.setHint("Person name");
         number.setHint("Mobile Number");*/
-        String str_name = name.getEditText().getText().toString();
-        String str_number = number.getEditText().getText().toString();
+        String str_name = name.getText().toString();
+        String str_number = number.getText().toString();
         SQLiteDatabase db = getActivity().openOrCreateDatabase("NumDB", Context.MODE_PRIVATE, null);
         //Toast.makeText(getApplicationContext(), "db created",Toast.LENGTH_LONG).show();
 
